@@ -1,0 +1,3 @@
+export const getTrainInformation = `/api2/realtimedeparturesV4.json?key=7090a813ba794dcc94876794f376d753&siteid=9117&timewindow=45&bus=false&metro=false&train=true&tram=false&ship=false&EnablePrediction=false`;
+export const getMetroInformation = `/api2/realtimedeparturesV4.json?key=7090a813ba794dcc94876794f376d753&siteid=9110&timewindow=50&bus=false&metro=true&train=false&tram=false&ship=false&EnablePrediction=false`;
+export const linesToSollentuna = ['40','41','42x'];
