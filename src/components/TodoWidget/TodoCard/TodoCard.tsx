@@ -15,7 +15,7 @@ interface TodoCardProps {
 }
 
 export const TodoCard = ({ children }: TodoCardProps) => {
-    return (<Card className="shadow-sm">
+    return (<Card className="shadow-sm overflow-y-auto max-h-[31rem]">
         {children}
     </Card>
     )

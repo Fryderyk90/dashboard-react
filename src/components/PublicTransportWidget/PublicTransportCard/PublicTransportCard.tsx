@@ -8,7 +8,7 @@ interface PublicTransportationCardProps {
 
 export const PublicTransportationCard = ({ children }: PublicTransportationCardProps) => {
     return (
-        <Card className="shadow-m">
+        <Card className="shadow-m overflow-y-auto max-h-[31rem]">
             {children}
         </Card>
     )
@@ -25,7 +25,7 @@ PublicTransportationCard.Header = (props: HeaderProps) => {
                 </span>
                 {props.lastUpdated &&
                     <span className="my-auto mr-2 text-sm">
-                        Last updated: {props.lastUpdated.toLocaleTimeString()}
+                        Last updated: {props.lastUpdated.toLocaleTimeString(undefined,{ hour: '2-digit', minute: '2-digit' })}
                     </span>}
                 <BounceLoader className="my-auto" data-testid="public-transportation-card-spinner" loading={props.isLoading} speedMultiplier={0.5} size={20} color="black" />
             </CardTitle>

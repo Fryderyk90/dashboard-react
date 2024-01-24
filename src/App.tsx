@@ -6,8 +6,9 @@ import { TodoWidget } from './components/TodoWidget/TodoWidget'
 function App() {
 
   return (
-    <div className='grid grid-cols-2 gap-4 bg-stone-200 overflow-y-auto'>
+    <div className='grid grid-cols-2 gap-4 h-screen bg-stone-100 p-4'>
       <PublicTransportWidget />
+      
       <TodoWidget />
     </div>
   )
