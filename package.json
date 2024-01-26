@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "src/main.tsx",
   "homepage": "https://fryderyk90.github.io/dashboard-react/",
   "scripts": {
     "dev": "vite",
