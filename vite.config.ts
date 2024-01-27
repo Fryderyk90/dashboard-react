@@ -6,6 +6,9 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   base: './',
+  esbuild: {
+    format: 'cjs', // Use CommonJS format
+  },
   build:{
     outDir: 'dist',
   },
