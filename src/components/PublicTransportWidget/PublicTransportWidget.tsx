@@ -6,6 +6,7 @@ import { linesToSollentuna } from '@/api/PublicTransport/constants'
 import { usePublicTransportApi } from '@/api/PublicTransport/usePublicTransportApi'
 import { DepartureTable } from './DepartureTable/DepartureTable'
 import { PublicTransportationCard } from './PublicTransportCard/PublicTransportCard'
+import React from 'react'
 //import { Card, CardFooter } from '../ui/card'
 
 export const PublicTransportWidget = () => {

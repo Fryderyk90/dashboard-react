@@ -1,4 +1,5 @@
 
+import React from 'react'
 import './App.css'
 import { PublicTransportWidget } from './components/PublicTransportWidget/PublicTransportWidget'
 import { TodoWidget } from './components/TodoWidget/TodoWidget'
