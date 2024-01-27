@@ -29,7 +29,13 @@ export const usePublicTransportApi = () => {
 const fetchTransportData = async (request: string): Promise<DeparturesResponse> => {
     try {
         // fetch request
-        const response = await fetch(request);
+        const response = await fetch(request,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        
+        });
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
