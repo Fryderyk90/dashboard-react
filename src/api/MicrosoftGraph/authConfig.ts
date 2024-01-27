@@ -16,7 +16,7 @@ export const msalConfig = {
     auth: {
         clientId: "4eb94645-f796-4a6c-8d26-90034183ec02",
         authority: "https://login.microsoftonline.com/consumers",
-        redirectUri: "http://localhost:5173/DashBoard/",
+        redirectUri: "https://fryderykdashboard.azurewebsites.net/",
     },
     //production
     //  auth: {
