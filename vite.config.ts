@@ -5,12 +5,9 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
-  esbuild: {
-    format: 'cjs', // Use CommonJS format
-  },
   build:{
-    outDir: 'dist',
+    target: 'esnext', // Ensure that Vite is configured to output ES modules
+    outDir: './dist',
   },
   resolve: {
     alias: {
