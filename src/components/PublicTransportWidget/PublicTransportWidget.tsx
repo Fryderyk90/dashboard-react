@@ -13,7 +13,7 @@ export const PublicTransportWidget = () => {
   const { trains, metros, refetchMetros, refetchTrains } = usePublicTransportApi()
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <PublicTransportationCard key="train-card">
         <PublicTransportationCard.Header
           isLoading={trains.isLoading}
