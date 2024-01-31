@@ -8,13 +8,13 @@ export const usePublicTransportApi = () => {
     const trains = useQuery<DeparturesResponse, Error>({
         queryKey: ['trainData'],
         queryFn: () => fetchTransportData(getTrainInformation),
-        staleTime: 540000
+        staleTime: 60000
     }) as UseQueryResult<DeparturesResponse, Error>;
 
     const metros = useQuery<DeparturesResponse, Error>({
         queryKey: ['metroData'],
         queryFn: () => fetchTransportData(getMetroInformation),
-        staleTime: 540000
+        staleTime: 60000
     }) as UseQueryResult<DeparturesResponse, Error>;
 
     const queryClient = useQueryClient()
