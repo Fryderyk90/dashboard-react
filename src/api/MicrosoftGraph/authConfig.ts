@@ -13,17 +13,17 @@ import { LogLevel } from "@azure/msal-browser";
 
 export const msalConfig = {
     //development
-    auth: {
-        clientId: "4eb94645-f796-4a6c-8d26-90034183ec02",
-        authority: "https://login.microsoftonline.com/consumers",
-        redirectUri: "http://localhost:5173/DashBoard/",
-    },
-    //production
-    //  auth: {
-    //     clientId: "a09bca37-0a63-4cad-be11-2349cdf9c65e",
+    // auth: {
+    //     clientId: "4eb94645-f796-4a6c-8d26-90034183ec02",
     //     authority: "https://login.microsoftonline.com/consumers",
-    //     redirectUri: "https://fryderyk-dashboard.azurewebsites.net/",
+    //     redirectUri: "http://localhost:5173/DashBoard/",
     // },
+    //production
+     auth: {
+        clientId: "a09bca37-0a63-4cad-be11-2349cdf9c65e",
+        authority: "https://login.microsoftonline.com/consumers",
+        redirectUri: "https://fryderyk-dashboard.azurewebsites.net/",
+    },
     cache: {
         cacheLocation: "localStorage", // This configures where your cache will be stored
         storeAuthStateInCookie: true, // Set this to "true" if you are having issues on IE11 or Edge
