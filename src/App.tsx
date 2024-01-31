@@ -9,9 +9,10 @@ import Clock from './components/Clock/Clock'
 function App() {
   return (
     <ThemeProvider>
-      <div className='flex justify-between align-middle'>
-           <Clock/>
-          <DarkModeToggle/>
+      <div className="relative flex items-center justify-end">
+        <Clock />
+
+        <DarkModeToggle />
       </div>
       <div className="grid grid-cols-1 grid-rows-2 sm:grid-cols-2  gap-4 h-screen bg-stone-200 dark:bg-stone-600 p-4">
         <PublicTransportWidget />
