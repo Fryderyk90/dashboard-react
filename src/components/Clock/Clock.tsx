@@ -13,7 +13,7 @@ const Clock: React.FC = () => {
     };
   }, []);
 
-  return <span className='absolute left-1/2 transform -translate-x-1/2'>{time.toLocaleTimeString()}</span>;
+  return <span className='absolute left-1/2 transform -translate-x-1/2 my-auto'>{time.toLocaleTimeString()}</span>;
 };
 
 export default Clock;
