@@ -4,14 +4,16 @@ import { PublicTransportWidget } from './components/PublicTransportWidget/Public
 import { TodoWidget } from './components/TodoWidget/TodoWidget'
 import { ThemeProvider } from './components/ui/ThemeProvider/ThemeProvider'
 import { DarkModeToggle } from './components/DarkModeToggle/DarkModeToggle'
+import Clock from './components/Clock/Clock'
 
 function App() {
   return (
     <ThemeProvider>
-      <div className='flex justify-end'>
+      <div className='flex justify-between align-middle'>
+           <Clock/>
           <DarkModeToggle/>
       </div>
-      <div className="grid grid-cols-2 gap-4 h-screen bg-stone-200 p-4">
+      <div className="grid grid-cols-2 gap-4 h-screen bg-stone-200 dark:bg-stone-600 p-4">
         <PublicTransportWidget />
         <TodoWidget />
       </div>

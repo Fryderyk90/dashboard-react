@@ -8,6 +8,15 @@ export default defineConfig({
   build:{
     target: 'esnext', // Ensure that Vite is configured to output ES modules
     outDir: './dist',
+  }, 
+  server: {
+    proxy: {
+      '/api2': {
+        target: 'http://api.sl.se',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api2/, '/api2')
+      }
+    }
   },
   resolve: {
     alias: {

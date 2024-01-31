@@ -11,7 +11,7 @@ import React from 'react'
 
 export const PublicTransportWidget = () => {
   const { trains, metros, refetchMetros, refetchTrains } = usePublicTransportApi()
-  
+
   return (
     <div className="grid grid-cols-2 gap-4">
       <PublicTransportationCard key="train-card">
@@ -20,10 +20,19 @@ export const PublicTransportWidget = () => {
           lastUpdated={new Date(trains?.data?.ResponseData?.LatestUpdate ?? '')}
           refetchButton={
             <Button
-              className="active:bg-white active:text-black mr-2 my-auto px-3 border-b-8 border-[#cd407f] w-full flex justify-start"
+              className="active:bg-white active:text-black dark:hover:bg-stone-800 hover:bg-stone-800 dark:active:bg-white dark:active:text-black mr-2 my-auto px-3 border-b-8 dark:bg-black dark:text-white dark:boarder-[##8b2d5a] border-[#cd407f] w-full flex justify-between"
               onClick={refetchTrains}
             >
-              <FontAwesomeIcon className="mr-3" icon={faTrain} /> Odenplan
+              <div>
+                <FontAwesomeIcon className="mr-3" icon={faTrain} />
+                Odenplan
+              </div>
+              <span>
+                updated:{' '}
+                {new Date(
+                  trains?.data?.ResponseData?.LatestUpdate ?? ''
+                ).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
+              </span>
             </Button>
           }
         />
@@ -43,10 +52,20 @@ export const PublicTransportWidget = () => {
           lastUpdated={new Date(metros?.data?.ResponseData?.LatestUpdate ?? '')}
           refetchButton={
             <Button
-              className="mr-2 my-auto px-3 border-b-8 border-[#168541] active:bg-white active:text-black w-full flex justify-start shadow-lg"
+              className="mr-2 my-auto px-3 dark:hover:bg-stone-800 hover:bg-stone-800 border-b-8 border-[#168541] dark:boarder-[#0f5a2c] dark:active:bg-white dark:active:text-black active:bg-white active:text-black dark:bg-black  dark:text-white w-full flex justify-between shadow-lg"
               onClick={refetchMetros}
             >
-              <FontAwesomeIcon className="mr-3" icon={faTrainSubway} /> Abrahamsberg
+              <div>
+                <FontAwesomeIcon className="mr-3" icon={faTrainSubway} />
+                Abrahamsberg
+              </div>
+
+              <span>
+                updated:{' '}
+                {new Date(
+                  metros?.data?.ResponseData?.LatestUpdate ?? ''
+                ).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
+              </span>
             </Button>
           }
         />
