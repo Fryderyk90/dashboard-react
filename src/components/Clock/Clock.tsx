@@ -13,7 +13,7 @@ const Clock: React.FC = () => {
     };
   }, []);
 
-  return <div className='dark:text-white ml-2 my-auto'>{time.toLocaleTimeString()}</div>;
+  return <div className='dark:text-white mx-auto my-auto'>{time.toLocaleTimeString()}</div>;
 };
 
 export default Clock;
