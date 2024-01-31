@@ -22,7 +22,7 @@ export const msalConfig = {
      auth: {
         clientId: "a09bca37-0a63-4cad-be11-2349cdf9c65e",
         authority: "https://login.microsoftonline.com/consumers",
-        redirectUri: "https://fryderykdashboard.azurewebsites.net/",
+        redirectUri: "https://fryderyk-dashboard.azurewebsites.net/",
     },
     cache: {
         cacheLocation: "localStorage", // This configures where your cache will be stored
