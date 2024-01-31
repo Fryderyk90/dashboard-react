@@ -13,7 +13,7 @@ interface PublicTransportationCardProps {
 }
 
 export const PublicTransportationCard = ({ children }: PublicTransportationCardProps) => {
-  return <Card className="drop-shadow-lg overflow-y-auto max-h-[31rem]">{children}</Card>
+  return <Card className="drop-shadow-lg overflow-y-auto">{children}</Card>
 }
 
 interface HeaderProps {

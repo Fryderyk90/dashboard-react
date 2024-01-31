@@ -20,6 +20,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                     <TableHead>Line</TableHead>
                     <TableHead>Departure</TableHead>
                     <TableHead>Destination</TableHead>
+                    <TableHead>Time</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -29,6 +30,8 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                             <TableCell className="font-medium">{departure?.LineNumber}</TableCell>
                             <TableCell>{departure?.DisplayTime}</TableCell>
                             <TableCell>{departure?.Destination}</TableCell>
+                            <TableCell>{new Date(departure?.ExpectedDateTime ?? ''
+                            ).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}</TableCell>
                         </TableRow>
                         {departure?.Deviations?.map((deviation, j) => (
                             <TableRow key={`${deviation.Consequence}-${j}`} className={`border-t-0 ${hasCancelledDepartures && 'bg-red-200'}`}>
@@ -37,7 +40,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                                         <AccordionItem className="my-1 border-b-0" value={`${deviation.Consequence}-j`}>
                                             <AccordionTrigger className="font-medium py-1">
                                                 <div>
-                                                    <FontAwesomeIcon className="mr-2 my-auto" color={hasCancelledDepartures ?  'red' : 'blue'} icon={hasCancelledDepartures ? faWarning :  faInfoCircle} />
+                                                    <FontAwesomeIcon className="mr-2 my-auto" color={hasCancelledDepartures ? 'red' : 'blue'} icon={hasCancelledDepartures ? faWarning : faInfoCircle} />
                                                     <span>
                                                         {deviation?.Consequence}
                                                     </span>

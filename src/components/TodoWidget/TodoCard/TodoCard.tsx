@@ -16,7 +16,7 @@ interface TodoCardProps {
 }
 
 export const TodoCard = ({ children }: TodoCardProps) => {
-    return (<Card className="drop-shadow-lg overflow-y-auto max-h-[31rem]">
+    return (<Card className="drop-shadow-lg overflow-y-auto">
         {children}
     </Card>
     )
@@ -59,7 +59,7 @@ export const TodoCardItem = ({ todo }: ItemProps) => {
         }, 700);
     }
     return (
-        <div onClick={handleCompleteTask} className="flex justify-between p-4 mb-2 border rounded-lg hover:bg-stone-100 cursor-pointer">
+        <div onClick={handleCompleteTask} className="flex justify-between p-4 mb-2 border rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer">
             <Label className="my-auto" htmlFor={`todo-item-${todo.id}`} >{todo.title}</Label>
             <Checkbox checked={status} id={`todo-item-${todo.id}`} />
         </div>

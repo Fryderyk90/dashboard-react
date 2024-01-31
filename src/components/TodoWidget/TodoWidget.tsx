@@ -12,10 +12,7 @@ export const TodoWidget = () => {
     const isAuthenticated = useIsAuthenticated();
     const { todos } = useMicrosoftGraphApi(graphClient);
 
-    if (todos.isError) {
-        const error = todos?.error
-        return (<div>{error.message}</div>)
-    }
+
     return (
         <TodoCard>
             <TodoCard.Header text="Todos" isLoading={todos.isLoading} button={!isAuthenticated && <SignInButton />} />
