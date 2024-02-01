@@ -34,13 +34,12 @@ export const useMicrosoftGraphApi = (graphClient: Client | undefined) => {
 
   };
 
-  const completeTask = async (taskId: string) => {
+  const completeTask = async (taskId: string, status: string) => {
     if (graphClient) {
 
       try {
         const endPoint = `/me/todo/lists/${listId}/tasks/${taskId}`
-
-        const taskResponse = await graphClient?.api(endPoint).patch({ status: 'completed' });
+        const taskResponse = await graphClient?.api(endPoint).patch({ status: status });
         if (taskResponse) {
           queryClient.invalidateQueries({ queryKey: ['todoData'] });
           queryClient.refetchQueries({ queryKey: ['todoData'] });
@@ -64,8 +63,10 @@ export const useMicrosoftGraphApi = (graphClient: Client | undefined) => {
   };
 
 
+  const refetchTodos = () => {
+    queryClient.refetchQueries({ queryKey: ['todoData'] });
+  };
 
 
-
-  return { todos, completeTask, subscribeToToDoNotifications };
+  return { todos, completeTask, subscribeToToDoNotifications,refetchTodos };
 };

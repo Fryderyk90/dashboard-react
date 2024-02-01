@@ -29,7 +29,7 @@ export const PublicTransportWidget = () => {
                 <FontAwesomeIcon className="mr-3" icon={faTrain} />
                 Odenplan
               </div>
-              <Badge className='text-white bg-stone-600'>
+              <Badge className='text-white bg-stone-600 hover:text-black'>
                 updated:{' '}
                 {new Date(
                   trains?.data?.ResponseData?.LatestUpdate ?? ''
@@ -63,7 +63,7 @@ export const PublicTransportWidget = () => {
                 Abrahamsberg
               </div>
 
-              <Badge className=' bg-stone-700 text-white'>
+              <Badge className=' bg-stone-700 text-white hover:text-black'>
                 updated:{' '}
                 {new Date(
                   metros?.data?.ResponseData?.LatestUpdate ?? ''
