@@ -63,13 +63,13 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                     }`}
                   >
                     <TableCell className="py-1" colSpan={4}>
-                      <Accordion type="single" collapsible className="w-full">
+                      <Accordion type="single" collapsible className="">
                         <AccordionItem
                           className="my-1 border-b-0"
                           value={`${deviation.Consequence}-j`}
                         >
-                          <AccordionTrigger className="font-medium py-1">
-                            <div>
+                          <AccordionTrigger className="font-medium py-1 w-full flex justify-start">
+                            
                               <FontAwesomeIcon
                                 className={`mr-2 my-auto text-red-700`}
                                 icon={hasCancelledDepartures ? faWarning : faInfoCircle}
@@ -77,7 +77,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                               <span className="dark:text-black">
                                 {deviation?.Consequence}
                               </span>
-                            </div>
+                            
                           </AccordionTrigger>
                           <AccordionContent
                             className={`font-medium  text-pretty py-2 ${
