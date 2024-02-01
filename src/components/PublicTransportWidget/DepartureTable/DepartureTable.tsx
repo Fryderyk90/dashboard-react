@@ -14,7 +14,7 @@ interface DepartureTableProps {
 export const DepartureTable = ({ data }: DepartureTableProps) => {
     const hasCancelledDepartures = data?.some(departure => departure?.Deviations?.some(deviation => deviation?.Consequence === "CANCELLED"))
     return (
-        <Table>
+        <Table className="dark:bg-stone-950">
             <TableHeader>
                 <TableRow >
                     <TableHead>Line</TableHead>
