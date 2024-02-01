@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className='sticky z-10 top-0'>
-        <div className='flex items-center justify-end align-middle bg-black'>
+        <div className='flex items-center justify-end align-middle dark:bg-black'>
 
            <Clock/>
           <DarkModeToggle/>
