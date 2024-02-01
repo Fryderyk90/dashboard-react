@@ -23,7 +23,7 @@ interface HeaderProps {
 PublicTransportationCard.Header = (props: HeaderProps) => {
   return (
     <CardHeader className='pt-2 pb-2' data-testid="public-transportation-card-header">
-      <CardTitle className='py-0'>
+      <CardTitle className='pb-0 pt-4'>
         {props.refetchButton}
       </CardTitle>
     </CardHeader>
