@@ -14,23 +14,23 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v2
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      uses: docker/setup-buildx-action@v2
 
     - name: Log in to registry
-      uses: docker/login-action@v3
+      uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_5957f2b68a5f464ebbe5f4c82dd4470f }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_2bf79fa67d194f24bf2604a4c9c7d2c1 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_cdb317257a4f403a94e3cce25d0fe026 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_84d365da27c845088b8261208d51cef2 }}
 
     - name: Build and push container image to registry
-      uses: docker/build-push-action@v5
+      uses: docker/build-push-action@v3
       with:
         push: true
-        tags: fryderyk90/dashboard-app:latest
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_cdb317257a4f403a94e3cce25d0fe026 }}/fryderyk90/dashboard-app:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -43,9 +43,9 @@ jobs:
     steps:
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
-      uses: azure/webapps-deploy@v3
+      uses: azure/webapps-deploy@v2
       with:
         app-name: 'fryderyk-dashboard'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_49b7d5d541c542b89e50e3fa10085c2e }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_5957f2b68a5f464ebbe5f4c82dd4470f }}/fryderyk90/dashboard-app:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ddec355c048d4c7d9ee8caf00d24ff57 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_cdb317257a4f403a94e3cce25d0fe026 }}/fryderyk90/dashboard-app:${{ github.sha }}'
