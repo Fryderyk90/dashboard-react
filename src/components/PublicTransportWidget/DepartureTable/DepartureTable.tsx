@@ -23,7 +23,7 @@ interface DepartureTableProps {
 
 export const DepartureTable = ({ data }: DepartureTableProps) => {
   return (
-    <div className="max-h-[23rem] overflow-auto rounded-lg">
+    <div className="max-h-[12rem] sm:max-h-[23rem] overflow-auto rounded-lg">
       <Table className="dark:bg-stone-950 sticky top-0  z-10">
         <TableHeader className="sticky top-0 z-10">
           <TableRow>
