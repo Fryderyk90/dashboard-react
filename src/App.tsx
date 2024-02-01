@@ -9,9 +9,12 @@ import Clock from './components/Clock/Clock'
 function App() {
   return (
     <ThemeProvider>
-      <div className='relative flex items-center justify-end align-middle'>
+      <div className='sticky z-10 top-0'>
+        <div className='flex items-center justify-end align-middle bg-black'>
+
            <Clock/>
           <DarkModeToggle/>
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 grid-rows-3 sm:grid-rows-2  gap-4 h-screen bg-stone-200 dark:bg-stone-800 p-4">
         <PublicTransportWidget />
