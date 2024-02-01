@@ -14,7 +14,7 @@ interface TodoCardProps {
 }
 
 export const TodoCard = ({ children }: TodoCardProps) => {
-  return <Card className="drop-shadow-lg overflow-y-auto dark:bg-stone-800">{children}</Card>
+  return <Card className="drop-shadow-lg overflow-y-auto dark:bg-stone-700">{children}</Card>
 }
 interface HeaderProps {
   text: string
