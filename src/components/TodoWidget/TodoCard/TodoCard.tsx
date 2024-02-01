@@ -64,7 +64,7 @@ export const TodoCardItem = ({ todo }: ItemProps) => {
   return (
     <div
       onClick={handleCompleteTask}
-      className="flex justify-between p-4 mb-2 border rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer"
+      className="flex justify-between p-4 mb-2 border rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800  dark:bg-stone-950 cursor-pointer"
     >
       <Label className="my-auto" htmlFor={`todo-item-${todo.id}`}>
         {todo.title}
