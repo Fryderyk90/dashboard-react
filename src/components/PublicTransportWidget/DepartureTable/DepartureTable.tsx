@@ -59,7 +59,9 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                   <TableRow
                     key={`${deviation.Consequence}-${j}`}
                     className={`border-t-0 ${
-                      hasCancelledDepartures && 'dark:bg-red-300 bg-red-200'
+                      hasCancelledDepartures
+                        ? 'dark:bg-red-300 bg-red-200'
+                        : 'dark:bg-blue-300 bg-blue-200'
                     }`}
                   >
                     <TableCell className="py-1" colSpan={4}>
@@ -69,19 +71,19 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                           value={`${deviation.Consequence}-j`}
                         >
                           <AccordionTrigger className="font-medium py-1 w-full flex justify-start">
-                            
-                              <FontAwesomeIcon
-                                className={`mr-2 my-auto text-red-700`}
-                                icon={hasCancelledDepartures ? faWarning : faInfoCircle}
-                              />
-                              <span className="dark:text-black">
-                                {deviation?.Consequence}
-                              </span>
-                            
+                            <FontAwesomeIcon
+                              className={`mr-2 my-auto ${
+                                hasCancelledDepartures ? 'text-red-700' : 'text-blue-700'
+                              }`}
+                              icon={hasCancelledDepartures ? faWarning : faInfoCircle}
+                            />
+                            <span className="dark:text-black">
+                              {deviation?.Consequence}
+                            </span>
                           </AccordionTrigger>
                           <AccordionContent
                             className={`font-medium  text-pretty py-2 ${
-                              hasCancelledDepartures ? 'text-red-500' : 'text-blue-500'
+                              hasCancelledDepartures ? 'text-red-500' : 'text-blue-700'
                             }`}
                           >
                             {deviation?.Text}

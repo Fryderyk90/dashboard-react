@@ -29,7 +29,7 @@ export const PublicTransportWidget = () => {
                 <FontAwesomeIcon className="mr-3" icon={faTrain} />
                 Odenplan
               </div>
-              <Badge className='text-white bg-stone-600 hover:text-black'>
+              <Badge className='text-white bg-stone-700 hover:text-black'>
                 updated:{' '}
                 {new Date(
                   trains?.data?.ResponseData?.LatestUpdate ?? ''
