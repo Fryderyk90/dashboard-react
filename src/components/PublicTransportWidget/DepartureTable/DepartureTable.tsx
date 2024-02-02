@@ -42,7 +42,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
               <React.Fragment key={`departure-${departure?.StopAreaName}-${i}`}>
                 <TableRow
                   className={`${departure?.Deviations?.length > 0 && 'border-b-0'} ${
-                    hasCancelledDepartures && 'bg-red-400 dark:bg-red-700'
+                    hasCancelledDepartures ? 'bg-red-400 dark:bg-red-700' : 'bg-blue-400 dark:bg-blue-700'
                   }`}
                 >
                   <TableCell className="font-medium">{departure?.LineNumber}</TableCell>
