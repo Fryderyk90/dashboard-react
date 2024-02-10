@@ -17,6 +17,7 @@ import {
   AccordionContent,
 } from '@radix-ui/react-accordion'
 
+
 interface DepartureTableProps {
   data: Transport[]
 }
@@ -42,7 +43,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
               <React.Fragment key={`departure-${departure?.StopAreaName}-${i}`}>
                 <TableRow
                   className={`${departure?.Deviations?.length > 0 && 'border-b-0'} ${
-                    hasCancelledDepartures ? 'bg-red-400 dark:bg-red-700' : 'bg-blue-400 dark:bg-blue-700'
+                    ClassesByStatus(departure?.Deviations?.[0]?.Consequence ?? '')
                   }`}
                 >
                   <TableCell className="font-medium">{departure?.LineNumber}</TableCell>
@@ -73,7 +74,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                           <AccordionTrigger className="font-medium py-1 w-full flex justify-start">
                             <FontAwesomeIcon
                               className={`mr-2 my-auto ${
-                                hasCancelledDepartures ? 'text-red-700' : 'text-blue-700'
+                                ClassesByStatus(deviation?.Consequence)
                               }`}
                               icon={hasCancelledDepartures ? faWarning : faInfoCircle}
                             />
@@ -83,7 +84,7 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
                           </AccordionTrigger>
                           <AccordionContent
                             className={`font-medium  text-pretty py-2 ${
-                              hasCancelledDepartures ? 'text-red-500' : 'text-blue-700'
+                              ClassesByStatus(deviation?.Consequence)
                             }`}
                           >
                             {deviation?.Text}
@@ -100,4 +101,15 @@ export const DepartureTable = ({ data }: DepartureTableProps) => {
       </Table>
     </div>
   )
+}
+
+function ClassesByStatus(status:string){
+  switch (status) {
+    case 'CANCELLED':
+      return 'bg-red-400 dark:bg-red-700';
+    case 'INFORMATION':
+      return 'bg-blue-400 dark:bg-blue-700';
+    default:
+      return '';
+  }
 }
