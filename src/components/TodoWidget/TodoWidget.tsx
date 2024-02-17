@@ -9,40 +9,47 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "..
 
 
 
+
 export const TodoWidget = () => {
-    const { graphClient } = useGraphClient();    
+    const { graphClient } = useGraphClient();
     const isAuthenticated = useIsAuthenticated();
-    const { todos,refetchTodos } = useMicrosoftGraphApi(graphClient);
+    const { todos, refetchTodos } = useMicrosoftGraphApi(graphClient);
 
-
+    const completedTodosCount = todos.data?.filter(todo => todo.status === 'completed').length ?? 0;
     return (
-        <TodoCard>
-            <TodoCard.Header text="Todos" refetch={refetchTodos} isLoading={todos.isLoading} button={!isAuthenticated && <SignInButton />} />
-            <TodoCard.Content>
-                <div>
-                    {todos.data?.filter(todo => todo.status !== 'completed').length === 0 && <div>No todos</div>}
-                    {todos.data && todos.data?.filter(todo => todo.status !== 'completed').map((todo) => (
-                        <TodoCardItem key={todo.id} todo={todo} />
-                    ))}
-                </div>
-                <div className=" mt-28">
-                    <Accordion type="single" collapsible className="w-full border dark:bg-stone-900 rounded-lg dark:hover:bg-stone-600 hover:bg-stone-100">
-                        <AccordionItem className="my-1 border-b-0" value={`${todos.dataUpdatedAt}-j`}>
-                            <AccordionTrigger className="font-medium p-3">
-                            ({todos.data?.filter(todo => todo.status === 'completed').length}) Completed
-                            </AccordionTrigger>
-                            <AccordionContent className="p-2">
-                                {
-                                    todos.data && todos.data?.filter(todo => todo.status === 'completed').map((todo) => (
-                                        <TodoCardItem key={todo.id} todo={todo} />
-                                    ))
-                                }
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>
-                </div>
-            </TodoCard.Content>
-        </TodoCard>
+        <div className="p-4">
+            <TodoCard>
+                <TodoCard.Header text="Todos" refetch={refetchTodos} isLoading={todos.isLoading} button={!isAuthenticated && <SignInButton />} />
+                <TodoCard.Content>
+                    <div>
+                        {todos.data?.filter(todo => todo.status !== 'completed').length === 0 && <div>No todos</div>}
+                        {todos.data && todos.data?.filter(todo => todo.status !== 'completed').map((todo) => (
+                            <TodoCardItem key={todo.id} todo={todo} />
+                        ))}
+                    </div>
+                    {completedTodosCount > 0 ?
+                        <div className=" mt-28">
+                            <Accordion type="single" collapsible className="w-full border dark:bg-stone-900 rounded-lg dark:hover:bg-stone-600 hover:bg-stone-100">
+                                <AccordionItem className="my-1 border-b-0" value={`${todos.dataUpdatedAt}-j`}>
+                                    <AccordionTrigger className="font-medium p-3">
+                                        ({completedTodosCount}) Completed
+                                    </AccordionTrigger>
+                                    <AccordionContent className="p-2">
+                                        {
+                                            todos.data && todos.data?.filter(todo => todo.status === 'completed').map((todo) => (
+                                                <TodoCardItem key={todo.id} todo={todo} />
+                                            ))
+                                        }
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </div>
+                        :
+                        <span className="">No todos</span>
+                    }
+                </TodoCard.Content>
+            </TodoCard>
+        </div>
     )
 }
 

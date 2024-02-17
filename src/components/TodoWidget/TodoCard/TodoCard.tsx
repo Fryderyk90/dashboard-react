@@ -14,7 +14,7 @@ interface TodoCardProps {
 }
 
 export const TodoCard = ({ children }: TodoCardProps) => {
-  return <Card className="drop-shadow-lg overflow-y-auto dark:bg-stone-700">{children}</Card>
+    return <Card className="drop-shadow-lg overflow-y-auto dark:bg-stone-700 h-full">{children}</Card>
 }
 interface HeaderProps {
   text: string
@@ -24,11 +24,11 @@ interface HeaderProps {
 }
 TodoCard.Header = ({ text, button, isLoading, refetch }: HeaderProps) => {
   return (
-    <CardHeader>
-      <CardTitle className="text-xl flex">
+    <CardHeader className='pt-2 pb-2'>
+      <CardTitle className="pb-0 pt-4">
         <Button
           style={{ height: '3rem' }}
-          className='mr-2  my-auto w-full dark:hover:bg-stone-800 hover:bg-stone-800 border-b-8 dark:active:bg-white dark:active:text-black active:bg-white active:text-black dark:bg-black  dark:text-white flex justify-between shadow-lg'
+          className='w-full dark:hover:bg-stone-800 hover:bg-stone-800 dark:active:bg-white dark:active:text-black active:bg-white active:text-black dark:bg-black  dark:text-white flex justify-between'
           onClick={refetch}>{isLoading ? <Loader2 className="animate-spin" size={24} /> : text}
         </Button>
       </CardTitle>
